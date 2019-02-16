@@ -1,0 +1,28 @@
+{
+  "name": "rx-fun",
+  "version": "0.0.1",
+  "description": "Having fun with RxJS",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arfordweb/rx-fun.git"
+  },
+  "keywords": [
+    "rx",
+    "rxjs",
+    "observables",
+    "node"
+  ],
+  "author": "Darnell Arford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arfordweb/rx-fun/issues"
+  },
+  "homepage": "https://github.com/arfordweb/rx-fun#readme",
+  "dependencies": {
+    "rxjs": "^6.4.0"
+  }
+}
