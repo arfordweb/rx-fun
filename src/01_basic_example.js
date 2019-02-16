@@ -1,20 +1,20 @@
 const { Observable } = require('rxjs')
 
-// Most basic observable creation
-let observable = Observable.create((observer) => {
+let observable = new Observable((subscriber) => {
     // the observer in this function sends data to subscribers and can end the stream
-	observer.next(1)
-	observer.next(2)
+    subscriber.next(1)
+    subscriber.next(2)
 	setTimeout(() => {
-		observer.next(4)
-		observer.complete()
+		subscriber.next(4)
+		subscriber.complete()
 	}, 1000)
 })
 
 // You can export an Observable from your module for other modules to subscribe to like this
 observable.subscribe({
-	next: x => console.log(`got value ${x}`),
-	error: err => console.error(`something wrong occurred: ${err}`),
+  next: x => console.log(`got value ${x}`),
+  // We're not demonstrating an error here, but this is how you can handle errors
+  error: err => console.error(`something wrong occurred: ${err}`),
 	complete: () => console.log('done'),
 })
 console.log('just after subscribe')

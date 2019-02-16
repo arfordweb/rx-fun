@@ -10,6 +10,8 @@ Push  ** Promise      ** ???        **
       ********************************
 
 Before we get into Observables, let's review the existing ways to respond to data.
+
+More Info on pull vs. push: https://rxjs-dev.firebaseapp.com/guide/observable#pull-versus-push
 */
 
 // 1. Function
@@ -44,22 +46,22 @@ console.log(`Used a Function to get ${getNumberTen()}\n`)
  * in the future, like data coming in from a network connect.
  */
 function oneToTenIteratorFactory() {
-    let iterationCount = 1
+  let iterationCount = 1
 
-    return {
-        next: () => ({ 
-            value: iterationCount++,
-            done: iterationCount > 10,
-        })
-    }
+  return {
+    next: () => ({ 
+      value: iterationCount++,
+      done: iterationCount > 10,
+    })
+  }
 }
 
 const oneToTenIterator = oneToTenIteratorFactory()
 let curIteration
 do {
-    // each call to `.next()` return an object with a `value` and a `done` property
-    curIteration = oneToTenIterator.next()
-    console.log(`Used an Iterator to get ${curIteration.value}`)
+  // each call to `.next()` return an object with a `value` and a `done` property
+  curIteration = oneToTenIterator.next()
+  console.log(`Used an Iterator to get ${curIteration.value}`)
 } while (!curIteration.done)
 console.log() // just getting a newline here so the output is more clear
 
@@ -75,13 +77,13 @@ console.log() // just getting a newline here so the output is more clear
  */
 
 var myPromise = new Promise(function(resolve, reject) {
-    setTimeout(function() {
-        resolve('Hello');
-    }, 2000);
+  setTimeout(function() {
+    resolve('Hello');
+  }, 2000);
 });
 
 function printValue(value) {
-    console.log(`Used a Promise to get ${value}\n`)
+  console.log(`Used a Promise to get ${value}\n`)
 }
 
 // Two seconds will elapse before the promise handler `printValue` is called.
@@ -94,3 +96,22 @@ multiple values over time, like in the case of receiving user input or data from
 connection?  Move on the the next example for a basic example of how we can achieve this with
 Observables.
 */
+
+/* Output:
+Used a Function to get 10
+
+Used an Iterator to get 1
+Used an Iterator to get 2
+Used an Iterator to get 3
+Used an Iterator to get 4
+Used an Iterator to get 5
+Used an Iterator to get 6
+Used an Iterator to get 7
+Used an Iterator to get 8
+Used an Iterator to get 9
+Used an Iterator to get 10
+
+Used a Promise to get Hello
+*/
+
+// More Info: https://rxjs-dev.firebaseapp.com/guide/observable

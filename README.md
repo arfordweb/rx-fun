@@ -14,3 +14,8 @@ Run `npm install` or `yarn install` at the root of this repo.
 View the `src/` files in your edit to view each lesson.  The output will be contained
 within each file.  But you can run the example code yourself with, for example,
 `node src/00_why_observables.js`
+
+More Info
+---------
+[RxJS Overview](https://rxjs-dev.firebaseapp.com/guide/observable)
+[Redux-Observable](https://redux-observable.js.org/) - Working with Observables and Redux
